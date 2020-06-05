@@ -6,7 +6,7 @@ spl_autoload_register(function ($class) {
 $session = new Session();
 if(! $session->validateSession('id'))
 {
-    header('location: login.php?message=Usuario o contraseña incorrectos&type=warningMessage');
+    header('location: login.php?message=Debes iniciar sesion&type=warningMessage');
 }
 
 ?>
@@ -95,7 +95,7 @@ if(! $session->validateSession('id'))
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="cerrar_sesion.php">
               <span data-feather="users"></span>
               Cerrar sesion
             </a>
