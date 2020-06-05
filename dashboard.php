@@ -65,7 +65,7 @@ if(! $session->validateSession('id'))
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
      <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Cerrar Sesion</a>
+      <a class="nav-link" href="#"><?php echo $session->getValue('usuario') ?></a>
     </li>
   </ul>
 </nav>
@@ -83,36 +83,24 @@ if(! $session->validateSession('id'))
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Cambiar contraseña
+              <span data-feather="users"></span>
+              Crear Post
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
+              <span data-feather="file"></span>
+              Cambiar contraseña
             </a>
           </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="users"></span>
               Cerrar sesion
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
+          
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Saved reports</span>
           <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
@@ -165,9 +153,9 @@ if(! $session->validateSession('id'))
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-      <h2>Section title</h2>
+      <h2>Lista de Posts</h2>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-hover">
           <thead>
             <tr>
               <th>#</th>
