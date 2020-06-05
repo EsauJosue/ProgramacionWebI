@@ -13,11 +13,11 @@ if (isset($_POST['submit'])){
         header('location: login.php?message=Usuario o contraseña no introducidos');
 
     }
-    
+     //Llave '' OR '1'='1'
     $login = new Login(new Conexion);
     $login->setEmail($email);
     $login->setPassword($password);
-    //Llave '' OR '1'='1'
+   
     if($login->signIn()){
         echo 'Credenciales validas';
     }else{
