@@ -17,11 +17,15 @@ if (isset($_POST['submit'])){
     $login = new Login(new Conexion);
     $login->setEmail($email);
     $login->setPassword($password);
-   
-    if($login->signIn()){
-        echo 'Credenciales validas';
+    $row = $login->signIn();
+    if($row)
+    {
+        
+        $session = new Session();
+        $session->addValue('email',$row['email_dev']);
+        $session->getValue('email');
     }else{
-        header('location: login.php?message=Usuario o contraseña incorrectos');
+        header('location: login.php?message=Usuario o contraseña incorrectos&typr=warningMessage');
     }
   
     
