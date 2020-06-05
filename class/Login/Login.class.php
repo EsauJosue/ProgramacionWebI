@@ -11,10 +11,11 @@ class Login
         $this->con = $con;
     }
     public function setEmail(string $email){
-        $this->email = $email;
+        //evitando inyeccion de código SQL 
+        $this->email = $this->con->real_escape_string($email);
     }
     public function setPassword(string $password){
-        $this->password = $password;
+        $this->password = $this->con->real_escape_string($password);
     }
     public function signIn(){
         $query = "SELECT * FROM `usuario` WHERE email_dev = '$this->email' AND password_dev = '$this->password' ";
